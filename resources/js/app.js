@@ -76,3 +76,4 @@ function createModal() {
     })
     return modal;
 }
+

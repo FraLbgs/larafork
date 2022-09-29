@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Service;
-use Illuminate\Support\Facades\Redirect;
 
-class ServiceController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class ServiceController extends Controller
     {
 
         $services = Service::all();
-        return view('list', ['services' => $services]);
+        return view('dashboard', ['services' => $services]);
     }
 
     /**
@@ -38,18 +37,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|min:5|max:50',
-            'description' => 'min:10|max:255|required',
-            'image' => 'max:30|required',
-        ]);
-
-        $service = new Service;
-        $service->name = $request->input('name');
-        $service->description = $request->input('description');
-        $service->image = $request->input('image');
-        $service->save();
-        return Redirect::route('home');
+        //
     }
 
     /**

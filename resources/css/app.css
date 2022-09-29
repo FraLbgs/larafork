@@ -752,9 +752,9 @@ body.template-dark {
 }
 
 
-/* SERVICES FORM */
+/* SERVICES AND PROJECTS FORM */
 
-.forms{
+/* .forms{
     margin: 2rem auto;
     padding: 2rem;
     display: flex;
@@ -762,13 +762,32 @@ body.template-dark {
     width: 60%;
     height: 100%;
     background-color: #fff;
+} */
+
+.hidden{
+    display: none;
+}
+
+.hidden-serv{
+    display: flex;
+    
+}
+
+.dash-ttl{
+    font-size: 3rem;
+    text-align: center;
+    background-color: rgba(214, 192, 192, 0.5);
+}
+
+.serv-info{
+    width: 50%;
 }
 
 .serv-form, .proj-form{
-    width : 30%;
+    width : 50%;
     text-align: center;
     border: 1px solid black;
-    /* padding: 1rem; */
+    margin: auto;
 }
 
 .serv-item, .proj-item{
@@ -776,8 +795,36 @@ body.template-dark {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    font-size: 1.5rem;
 }
 
 .serv-btn, .proj-btn{
     margin: auto;
+}
+
+/*SERVICES AND PROJECTS LIST*/
+
+.lists{
+    margin: auto;
+    width: 50%;
+}
+
+.list-ttl{
+    font-size: 2rem;
+    background-color: rgba(128, 128, 128, .5);
+    text-align: center;
+}
+
+.gp-list{
+    padding-top: 1rem;
+    width: 30%;
+}
+
+.serv-list{
+    padding-top: 1rem;
+}
+
+.serv-list-item{
+    font-size: 1.2rem;
+    padding: 0.2rem 1rem;
 }

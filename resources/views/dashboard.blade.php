@@ -1,35 +1,52 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            <!-- <a href="{{ route('register') }}">Add</a> | <a href="{{ route('list') }}">List</a> | <a href="http://">Remove</a> -->
         </h2>
     </x-slot>
 
     <div class="forms">
-        <div class="serv-form">
-            <form  action="{{ @route('addserv') }}" method="post">
-                @csrf
-                <ul class="serv-list">
-                    <li class="serv-item">
-                        <label class="serv-label required" for="name">Service Name</label>
-                        <input class="serv-text" type="text" id="name" name="name" value="">
-                    </li>
-                    <li class="serv-item">
-                        <label class="serv-label required" for="description">Service Description</label>
-                        <input class="serv-text" type="text" id="description" name="description" value="">
-                    </li>
-                    <li class="serv-item">
-                        <label class="serv-label" for="image">Service Image</label>
-                        <input class="serv-text" type="text" id="image" name="image" value="">
-                    </li>
-                    <li class="serv-item serv-submit">
-                        <input class="button serv-btn" type="submit" id="submit" name="submit" value="Add Service">
-                    </li>
-                </ul>
-            </form>
+        <h3 id="services" class="dash-ttl">SERVICES</h3>
+        <div class="hidden-serv">
+            <div id="serv-info" class="serv-info">
+                <form  class="serv-form" action="{{ @route('addserv') }}" method="post">
+                    @csrf
+                    <ul class="serv-list">
+                        <li class="serv-item">
+                            <label class="serv-label required" for="name">Service Name</label>
+                            <input class="serv-text" type="text" id="name" name="name" value="">
+                        </li>
+                        <li class="serv-item">
+                            <label class="serv-label required" for="description">Service Description</label>
+                            <input class="serv-text" type="text" id="description" name="description" value="">
+                        </li>
+                        <li class="serv-item">
+                            <label class="serv-label" for="image">Service Image</label>
+                            <input class="serv-text" type="text" id="image" name="image" value="">
+                        </li>
+                        <li class="serv-item serv-submit">
+                            <input class="button serv-btn" type="submit" id="submit" name="submit" value="Add Service">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="lists">
+                <div class="gp-list">
+                    <h3 class="list-ttl">List of Services</h3>
+                    <ul class="serv-list">
+                        @foreach ($services as $service)
+                        <li class='serv-list-item'>
+                            {{ $service->name }}
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="proj-form">
-            <form  action="{{ @route('addproj') }}" method="post">
+        <div>
+        <h3 id="projects" class="dash-ttl">PROJECTS</h3>
+        <div id="proj-info">
+            <form class="proj-form" action="{{ @route('addproj') }}" method="post">
                 @csrf
                 <ul class="proj-list">
                     <li class="proj-item">
@@ -45,6 +62,7 @@
                     </li>
                 </ul>
             </form>
+        </div>
         </div>
     </div>
 </x-app-layout>
