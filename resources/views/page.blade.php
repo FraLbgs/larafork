@@ -98,7 +98,7 @@
                     </ul>
                 </div>
             @endif
-            <form class="contact-form" action="{{ @route('formsent') }}#contact" method="post">
+            <form class="contact-form" action="{{ @route('addcustomer') }}#contact" method="post">
                 @csrf
                 <ul class="contact-list">
                     <li class="contact-item">

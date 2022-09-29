@@ -2,24 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customer;
-use App\Models\Project;
-use App\Models\Service;
 use Illuminate\Http\Request;
+use App\Models\Project;
 use Illuminate\Support\Facades\Redirect;
 
-class CustomerController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-
-        $services = Service::all()->sortBy('name')->take(4);
-        $projects = Project::where('name', '!=', 'Zoonic')->take(6)->get();
-        return view('page',['services' => $services, 'projects' => $projects]);
+    public function index()
+    {
+        //
     }
 
     /**
@@ -40,20 +36,15 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'name' => 'required|min:5|max:50',
-            'email' => 'email:rfc,dns|required',
-            'phone' => 'nullable|size:10',
-            'message' => 'max:255'
+            'image' => 'max:30|required',
         ]);
 
-        $customer = new Customer;
-        $customer->name = $request->input('name');
-        $customer->email = $request->input('email');
-        $customer->phone = $request->input('phone');
-        $customer->message = $request->input('message');
-        $customer->save();
+        $project = new Project;
+        $project->name = $request->input('name');
+        $project->image = $request->input('image');
+        $project->save();
         return Redirect::route('home');
     }
 

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +25,6 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/', [CustomerController::class, 'index'])->name('home');
-Route::post('/formsent', [CustomerController::class, 'store'])->name('formsent');
-// Route::post('/register', [CustomerController::class, 'store'])->name('register');
+Route::post('/addcustomer', [CustomerController::class, 'store'])->name('addcustomer');
+Route::post('/addservice', [ServiceController::class, 'store'])->name('addserv');
+Route::post('/addproject', [ProjectController::class, 'store'])->name('addproj');

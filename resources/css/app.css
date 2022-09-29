@@ -750,3 +750,34 @@ body.template-dark {
         height: calc(100% - 4rem);
     }
 }
+
+
+/* SERVICES FORM */
+
+.forms{
+    margin: 2rem auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.serv-form, .proj-form{
+    width : 30%;
+    text-align: center;
+    border: 1px solid black;
+    /* padding: 1rem; */
+}
+
+.serv-item, .proj-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.serv-btn, .proj-btn{
+    margin: auto;
+}
