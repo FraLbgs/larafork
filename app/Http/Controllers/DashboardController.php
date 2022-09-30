@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Models\Service;
 
@@ -16,7 +18,13 @@ class DashboardController extends Controller
     {
 
         $services = Service::all();
-        return view('dashboard', ['services' => $services]);
+        $projects = Project::all();
+        $customers = Customer::all();
+        return view('dashboard', [
+            'services' => $services,
+            'projects' => $projects,
+            'customers' => $customers
+        ]);
     }
 
     /**

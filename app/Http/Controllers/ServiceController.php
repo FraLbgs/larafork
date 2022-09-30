@@ -16,8 +16,8 @@ class ServiceController extends Controller
     public function index()
     {
 
-        $services = Service::all();
-        return view('list', ['services' => $services]);
+        // $services = Service::all();
+        // return view('list', ['services' => $services]);
     }
 
     /**
@@ -49,7 +49,7 @@ class ServiceController extends Controller
         $service->description = $request->input('description');
         $service->image = $request->input('image');
         $service->save();
-        return Redirect::route('home');
+        return Redirect::route('dashboard');
     }
 
     /**

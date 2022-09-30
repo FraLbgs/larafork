@@ -768,8 +768,12 @@ body.template-dark {
     display: none;
 }
 
-.hidden-serv{
+.hidden-serv, .hidden-proj{
     display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+    margin: auto;
+    padding: 1rem 0;
     
 }
 
@@ -777,14 +781,15 @@ body.template-dark {
     font-size: 3rem;
     text-align: center;
     background-color: rgba(214, 192, 192, 0.5);
+    margin-bottom: 0.5rem;
 }
 
-.serv-info{
-    width: 50%;
+.serv-info, .proj-info{
+    width: 30%;
 }
 
 .serv-form, .proj-form{
-    width : 50%;
+    /* width : 50%; */
     text-align: center;
     border: 1px solid black;
     margin: auto;
@@ -805,8 +810,8 @@ body.template-dark {
 /*SERVICES AND PROJECTS LIST*/
 
 .lists{
-    margin: auto;
-    width: 50%;
+    /* margin: 0 auto; */
+    width: 30%;
 }
 
 .list-ttl{
@@ -816,15 +821,30 @@ body.template-dark {
 }
 
 .gp-list{
-    padding-top: 1rem;
-    width: 30%;
+    /* padding-top: 1rem; */
+    /* width: 30%; */
+    margin: auto;
 }
 
-.serv-list{
+.serv-list, .proj-list, .cust-list{
     padding-top: 1rem;
 }
 
-.serv-list-item{
-    font-size: 1.2rem;
+.serv-list-item, .proj-list-item, .cust-list-item{
     padding: 0.2rem 1rem;
+    font-size: 1.5rem;
+}
+
+.cust-lists{
+    width: 70%;
+    margin: auto;
+}
+
+.cust-list-item{
+    display: grid;
+    grid-template-columns: 15% 20% 15% 50%;
+}
+
+.bold{
+    font-weight: bold;
 }

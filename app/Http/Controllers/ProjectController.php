@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('list');
+        // return view('list');
     }
 
     /**
@@ -45,7 +45,7 @@ class ProjectController extends Controller
         $project->name = $request->input('name');
         $project->image = $request->input('image');
         $project->save();
-        return Redirect::route('home');
+        return Redirect::route('dashboard');
     }
 
     /**

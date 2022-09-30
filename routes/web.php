@@ -27,4 +27,4 @@ Route::get('/', [CustomerController::class, 'index'])->name('home');
 Route::post('/addcustomer', [CustomerController::class, 'store'])->name('addcustomer');
 Route::post('/addservice', [ServiceController::class, 'store'])->name('addserv');
 Route::post('/addproject', [ProjectController::class, 'store'])->name('addproj');
-Route::get('/dashboard/list', [ServiceController::class, 'index'])->name('list');
+// Route::get('/dashboard/list', [ServiceController::class, 'index'])->name('list');

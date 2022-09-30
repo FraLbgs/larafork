@@ -18,7 +18,7 @@ class CustomerController extends Controller
     public function index(){
 
         $services = Service::all()->sortBy('name')->take(4);
-        $projects = Project::where('name', '!=', 'Zoonic')->take(6)->get();
+        $projects = Project::all();
         return view('page',['services' => $services, 'projects' => $projects]);
     }
 
@@ -42,7 +42,7 @@ class CustomerController extends Controller
     {
 
         $request->validate([
-            'name' => 'required|min:5|max:50',
+            'name' => 'required|min:4|max:50',
             'email' => 'email:rfc,dns|required',
             'phone' => 'nullable|size:10',
             'message' => 'max:255'
