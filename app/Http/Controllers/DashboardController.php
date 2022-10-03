@@ -23,7 +23,17 @@ class DashboardController extends Controller
         return view('dashboard', [
             'services' => $services,
             'projects' => $projects,
-            'customers' => $customers
+            'customers' => $customers,
+            'serviceName' => '',
+            'serviceDesc' => '',
+            'serviceImg' => '',
+            'submitS' => 'Add Service',
+            'actionS' => route('addserv'),
+            'submitP' => 'Add Project',
+            'actionP' => route('addproj'),
+            'projectName' => '',
+            'projectImg' => '',
+            'actionMs' => 'add'
         ]);
     }
 
@@ -67,7 +77,7 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 
     }
 
     /**

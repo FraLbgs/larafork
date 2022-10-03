@@ -61,7 +61,7 @@
                             <p class="card-txt">
                                 {{ $service->description }}
                             </p>
-                            <img class="card-icon" src="{{ $service->image }}" alt="Web services">
+                            <img class="card-icon" src="{{ asset($service->image) }}" alt="Web services">
                         </a>
                     </li>
                     @endforeach
@@ -76,7 +76,7 @@
             <ul class="portfolio-grid">
                 @foreach ($projects as $project)
                     <li>
-                        <img  class="portfolio-img" src="{{ $project->image }}" alt="Roll the Dole">
+                        <img  class="portfolio-img" src="{{ asset($project->image) }}" alt="Roll the Dole">
                         <a href="#" class="portfolio-block">
                             <span class="portfolio-brand">{{ $project->name }}</span>
                         </a> 

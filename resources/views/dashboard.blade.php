@@ -6,25 +6,28 @@
 
     <div class="forms">
         <h3 id="services" class="dash-ttl">SERVICES</h3>
-        <div id="hidden-serv" class="hidden">
+        <div id="hidden-serv" class="hidden-serv">
             <div class="serv-info">
-                <form  class="serv-form" action="{{ @route('addserv') }}" method="post">
+                <form  class="serv-form" action="{{$actionS}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <ul class="serv-list">
                         <li class="serv-item">
                             <label class="serv-label required" for="name">Service Name</label>
-                            <input class="serv-text" type="text" id="name" name="name" value="">
+                            <input class="serv-text" type="text" id="name" name="name" value="{{$serviceName}}">
                         </li>
                         <li class="serv-item">
                             <label class="serv-label required" for="description">Service Description</label>
-                            <input class="serv-text" type="text" id="description" name="description" value="">
+                            <input class="serv-text" type="text" id="description" name="description" value="{{$serviceDesc}}">
                         </li>
                         <li class="serv-item">
                             <label class="serv-label" for="image">Service Image</label>
-                            <input class="serv-text" type="text" id="image" name="image" value="">
+                            <input id="file-s" class="file {{$actionMs === 'update' ? 'hidden' : ''}}" type="file" id="image" name="image" value="{{$serviceImg}}">
+                            @if ($actionMs === "update")
+                            <div id="img-s" class=""><button class="btn-s" type="button">Changer d'image</button> <img class="img-s" src="{{asset($serviceImg)}}"></div>
+                            @endif
                         </li>
                         <li class="serv-item serv-submit">
-                            <input class="button serv-btn" type="submit" id="submit" name="submit" value="Add Service">
+                            <input class="button serv-btn" type="submit" id="submit" name="submit" value="{{$submitS}}">
                         </li>
                     </ul>
                 </form>
@@ -35,7 +38,8 @@
                     <ul class="serv-list">
                         @foreach ($services as $service)
                         <li class='serv-list-item'>
-                            {{ $service->name }}
+                            <div>{{ $service->name }}</div>
+                            <div><a href="{{ @route('editserv', ['id' => $service->id]) }}">Modifier</a></div>
                         </li>
                         @endforeach
                     </ul>
@@ -43,21 +47,21 @@
             </div>
         </div>
         <h3 id="projects" class="dash-ttl">PROJECTS</h3>
-        <div id="hidden-proj" class="hidden">
+        <div id="hidden-proj" class="hidden-proj">
             <div class="proj-info">
-                <form class="proj-form" action="{{ @route('addproj') }}" method="post">
+                <form class="proj-form" action="{{ $actionP }}" method="post">
                     @csrf
                     <ul class="proj-list">
                         <li class="proj-item">
                             <label class="proj-label required" for="name">Project Name</label>
-                            <input class="proj-text" type="text" id="name" name="name" value="">
+                            <input class="proj-text" type="text" id="name" name="name" value="{{ $projectName }}">
                         </li>
                         <li class="proj-item">
                             <label class="proj-label" for="image">Project Image</label>
-                            <input class="proj-text" type="text" id="image" name="image" value="">
+                            <input class="file" type="file" id="image" name="image" value="{{ $projectImg }}">
                         </li>
                         <li class="proj-item proj-submit">
-                            <input class="button proj-btn" type="submit" id="submit" name="submit" value="Add Project">
+                            <input class="button proj-btn" type="submit" id="submit" name="submit" value="{{$submitP}}">
                         </li>
                     </ul>
                 </form>
@@ -68,7 +72,8 @@
                     <ul class="proj-list">
                         @foreach ($projects as $project)
                         <li class='proj-list-item'>
-                            {{ $project->name }}
+                            <div>{{ $project->name }}</div>
+                            <div><a href="{{ @route('editproj', ['id' => $project->id]) }}">Modifier</a></div>
                         </li>
                         @endforeach
                     </ul>

@@ -785,7 +785,7 @@ body.template-dark {
 }
 
 .serv-info, .proj-info{
-    width: 30%;
+    width: 36%;
 }
 
 .serv-form, .proj-form{
@@ -801,6 +801,25 @@ body.template-dark {
     align-items: center;
     padding: 1rem;
     font-size: 1.5rem;
+}
+
+.serv-text, .proj-text{
+    width: 40%;
+}
+
+.file{
+    width: 64%;
+}
+
+.btn-s{
+    padding: 2px 5px;
+    border: 1px solid rgb(150, 150, 150);
+    background-color: rgb(200, 200, 200);
+}
+
+.img-s{
+    width: 50px;
+    display: inline;
 }
 
 .serv-btn, .proj-btn{
@@ -833,6 +852,11 @@ body.template-dark {
 .serv-list-item, .proj-list-item, .cust-list-item{
     padding: 0.2rem 1rem;
     font-size: 1.5rem;
+}
+
+.serv-list-item, .proj-list-item{
+   display: flex;
+   justify-content: space-between;
 }
 
 .cust-lists{
